@@ -1,5 +1,5 @@
 # Phaser 3 + Babel ES6 + Webpack + Docker
-This project now lets you quickly get up and running to develop Phaser3 projects with webpack in a docker container.
+This project lets you quickly get up and running to develop Phaser3 projects with webpack in a docker container.
 
 ## How to run
 - 1. cd into node folder.
