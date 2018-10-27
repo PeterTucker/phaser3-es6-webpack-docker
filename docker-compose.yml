@@ -1,0 +1,21 @@
+version: '3.2'
+# Instructions 
+# 1. cd into node folder.
+# 2. Remove, rebuild, and run container/image with docker compose:
+# docker-compose -f docker-compose.yml rm -f && docker-compose -f docker-compose.yml build --no-cache &&  docker-compose -f docker-compose.yml up 
+# 3. If need be, jump into container w/ bash:
+# docker exec -i -t phaser-es6-webpack-docker_phaser-proj-node-server_1 bash
+services: 
+  phaser-proj-node-server:
+    build: ./node-server
+    command: npm run start # run dev. ex: localhost:3000
+    #command: npm run build # create build directory
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./node-server:/opt/app
+      - /opt/app/node_modules # weird line. creates an empty node_module but allows the project to work.
+      # http://dchua.com/2016/02/07/getting-npm-packages-to-be-installed-with-docker-compose/
+    ports:
+      - 3000:3000 #host:container
+    #  - ./environment.env
